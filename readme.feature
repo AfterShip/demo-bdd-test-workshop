@@ -1,13 +1,3 @@
-# demo-bdd-test-workshop
-A workshop for bdd test coding by Node.js
-
-Coding environment: Node.js
-
-[fast download & install](https://nodejs.org/)
-
-## Usage
-
-```gherkin
 
 Feature: BDD practices
 
@@ -36,5 +26,3 @@ Feature: BDD practices
 		Then just checkout the target branch to see the demo code by "git checkout <target-branch>":
 
 		Then run "npm test"
-
-```
