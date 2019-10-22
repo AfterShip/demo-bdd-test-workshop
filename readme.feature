@@ -1,7 +1,6 @@
-
 Feature: BDD practices
 
-	Scenario: Preparing demo workshop
+	Scenario: Launching demo workshop
 
 		Given I am a cool coder trying to glance more about "BDD"
 
@@ -13,16 +12,20 @@ Feature: BDD practices
 
 		Then run "npm install"
 
-
-	Scenario: Launching demo workshop
-
-		Given the project has several branches for different "scenarios" we are going to demo:
-			| AvailableBranches |
-			| aftership-foo     |
-			| aftership-bar     |
-
-		When I want to try each "scenarios"
-
-		Then just checkout the target branch to see the demo code by "git checkout <target-branch>":
+		When I have written the "Gherkin" and "step definitions"
 
 		Then run "npm test"
+
+
+	Scenario: View the answers of practices
+
+		Given the project has several branches for examples of "Gherkin" & "step definitions" of the BDD practices
+
+		When I have written "feature" and "step definition"
+
+		And I want to view the answers
+
+		Then just checkout the target branch to see the example by "git checkout <target-branch>":
+			| AvailableBranches  |
+			| aftership-login    |
+			| aftership-tracking |
