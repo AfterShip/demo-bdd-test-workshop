@@ -42,3 +42,80 @@ Feature: BDD practices
 			| aftership-tracking |
 
 ```
+
+## About step definitions
+
+These workshop will implement the step definitions by an E2E test tool call `Cypress`
+
+You can refer following codes to implement the step:
+
+Gherkin:
+```gherkin
+Given I am a cool coder
+```
+Correspond to:
+```js
+Given('I am a cool coder', ()=>{
+	// code something if needed
+})
+```
+
+### Examples of step definitions that may be used in this workshop
+
+#### Visit a page
+
+Gherkin:
+```gherkin
+When I visit the "https://www.aftership.com"
+```
+correspond to:
+```js
+When(/I visit the "(.+)"/, url => {
+	cy.visit(url)
+})
+```
+
+#### Click a button
+
+Gherkin:
+```gherkin
+When I click the "Sign In" button
+```
+correspond to:
+```js
+When(/I click the "(.+)" button/, buttonText => {
+	cy.get('button').contains(buttonText).click();
+})
+```
+
+#### Assert the page contains some text
+
+Gherkin:
+```gherkin
+Then I can see the "Welcome!"
+```
+correspond to:
+```js
+Then(/I can see the "(.+)"/, text => {
+	cy.contains(text);
+})
+```
+#### Select something by a css selector
+
+get an id called "header"
+```js
+cy.get('#header');
+```
+get an input field name "email"
+```js
+cy.get('input[name="email"]');
+```
+
+#### Type some text in a input field
+
+```js
+cy.get(`input[name="email"]`).type('john@aftership.com');
+```
+
+
+
