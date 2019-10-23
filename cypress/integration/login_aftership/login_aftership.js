@@ -2,39 +2,28 @@ Given("I am a user, I never login to Aftership site before", () => {
   // ok I am a user, nothing to need to be initialized
 });
 
-/**
- * The syntax of step definitions:
- * You can use these functions to implement the step definitions:
- *
- * 1. visit a page:
- * 			cy.visit(`url`)
- *
- * 2. assert the page contains some text:
- * 			cy.contains(`some text`);
- *
- * 3. assert something can be found in the page by a selector
- *
- * 			cy.get(`the css selector`);
- * 4. type some text in a input field which name is `mail`
- * 			cy.get(`input[name="email"]`).type(`some text`);
- *
- * 5. click a button:
- * 			cy.get(`button:visible`).contains(`the button name`).click();
- *
- */
-When("something...", () => {
-  // here to implement the Cucumber:
-  // ...
+When(/I visit "(.+)"/, url => {
+  cy.visit(url);
 });
-And("something...", () => {
-  // here to implement the Cucumber:
-  // ...
+
+Then(/I can see "(.+)"/, someText => {
+  cy.contains(someText);
 });
-But("something...", () => {
-  // here to implement the Cucumber:
-  // ...
+
+And(/I can see a form with these fields/, ({ rawTable }) => {
+  for (const td of rawTable[0]) {
+    cy.get(`input[name='${td}']`);
+  }
 });
-Then("something...", () => {
-  // here to implement the Cucumber:
-  // ...
+
+When(/I type in these values to the form/, ({ rawTable }) => {
+  for (const tr of rawTable) {
+    cy.get(`input[name='${tr[0]}']`).type(tr[1]);
+  }
+});
+
+And(/I click the "(.+)" button/, buttonName => {
+  cy.get("button")
+    .contains(buttonName)
+    .click();
 });
