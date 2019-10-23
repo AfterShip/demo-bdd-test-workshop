@@ -70,7 +70,7 @@ When I visit the "https://www.aftership.com"
 ```
 correspond to:
 ```js
-When(/I visit the "(.+)"/, url => {
+When("I visit the {string}", url => {
 	cy.visit(url)
 })
 ```
@@ -83,8 +83,8 @@ When I click the "Sign In" button
 ```
 correspond to:
 ```js
-When(/I click the "(.+)" button/, buttonText => {
-	cy.get('button').contains(buttonText).click();
+When("I click the {string} button", buttonText => {
+	cy.get('button:visible').contains(buttonText).click();
 })
 ```
 
@@ -96,16 +96,17 @@ Then I can see the "Welcome!"
 ```
 correspond to:
 ```js
-Then(/I can see the "(.+)"/, text => {
-	cy.contains(text);
+Then("I can see the {string}", text => {
+	cy.contains(':visible', text);
 })
 ```
 #### Select something by a css selector
 
-get an id called "header"
+get a visible element
 ```js
-cy.get('#header');
+cy.get('button:visible');
 ```
+
 get an input field name "email"
 ```js
 cy.get('input[name="email"]');
