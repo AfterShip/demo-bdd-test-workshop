@@ -1,3 +1,4 @@
+
 Feature: BDD practices
 
 	Scenario: Launching demo workshop
@@ -12,20 +13,14 @@ Feature: BDD practices
 
 		Then run "npm install"
 
-		When I have written the "Gherkin" and "step definitions"
 
-		Then run "npm test"
+	Scenario: Run the test
 
+		Given the project has several branches represent to deferent scenarios
+			| AvailableBranchesOfScenarios |
+			| aftership-login-success      |
+			| aftership-login-error        |
 
-	Scenario: View the answers of practices
-
-		Given the project has several branches for examples of "Gherkin" & "step definitions" of the BDD practices
-
-		When I have written "feature" and "step definition"
-
-		And I want to view the answers
+		When I want to switch to a scenario
 
 		Then just checkout the target branch to see the example by "git checkout <target-branch>":
-			| AvailableBranches  |
-			| aftership-login    |
-			| aftership-tracking |
