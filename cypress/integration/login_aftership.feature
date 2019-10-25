@@ -1,24 +1,14 @@
 
 Feature: Login to Aftership
-	Scenario: Success login to Aftership account
-		Given I am a user, I have registered an AfterShip account:
-			| email                       | password          |
-			| demo-bdd-test@aftership.com | demo-BDD-test-123 |
-		When I visit "https://accounts.aftership.com"
-		Then I should see "Welcome back"
-		When I type "demo-bdd-test@aftership.com" in an input box which name is "email"
-		And I type "demo-BDD-test-123" in an input box which name is "password"
-		And I click the "Login" button
-		Then I can see "Welcome , demo-bdd-test!"
+	Scenario: Successfully logging in aftership with a correct password
+		Given I have an aftership account, and never logined to "https://accounts.aftership.io"
+			| email                   | password          |
+			| demo-bdd-test@gmail.com | demo-BDD-test-123 |
 
-
-	Scenario: Login to Aftership account with wrong password
-		Given I am a user, I have registered an AfterShip account:
-			| email                       | password          |
-			| demo-bdd-test@aftership.com | demo-BDD-test-123 |
-		When I visit "https://accounts.aftership.com"
+		When I visit "https://accounts.aftership.io"
 		Then I should see "Welcome back"
-		When I type "demo-bdd-test@aftership.com" in an input box which name is "email"
-		And I type "wrong-password" in an input box which name is "password"
+		When I type "demo-bdd-test@gmail.com" in the "email" input box
+		And I type "demo-BDD-test-123" in the "password" input box
 		And I click the "Login" button
-		Then I can see "xxx"
+		Then I should be on the account home page
+		And I should see "Welcome , demo-bdd-test!"

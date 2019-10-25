@@ -1,29 +1,10 @@
-Given("I am a user, I never login to Aftership site before", () => {
-  // ok I am a user, nothing to need to be initialized
+Given("I have an aftership account, and never logined to {string}", (url) => {
+	// ok I already have an account, nothing to need to be done
+	cy.visit(url);
+  cy.clearCookies();
+  cy.clearLocalStorage();
 });
 
-When("I visit {string}", url => {
-  cy.visit(url);
-});
-
-Then("I can see {string}", someText => {
-  cy.contains(someText);
-});
-
-And("I can see a form with these fields:", ({ rawTable }) => {
-  for (const td of rawTable[0]) {
-    cy.get(`input[name='${td}']`);
-  }
-});
-
-When("I type in these values to the form:", ({ rawTable }) => {
-  for (const tr of rawTable) {
-    cy.get(`input[name='${tr[0]}']`).type(tr[1]);
-  }
-});
-
-And("I click the {string} button", buttonName => {
-  cy.get("button")
-    .contains(buttonName)
-    .click();
+When("TBC...", (argument1, argument2) => {
+  // to be continue...
 });
