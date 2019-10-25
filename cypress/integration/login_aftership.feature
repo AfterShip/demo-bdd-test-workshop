@@ -24,6 +24,6 @@ Feature: Login to Aftership
 		When I type "demo-bdd-test@gmail.com" in the "email" input box
 		And I type "wrong-password" in the "password" input box
 		And I click the "Login" button
-		Then I should see "Incorrect email or password."
+		Then I should see a message "Incorrect email or password."
 		And I should be on the login page
 
