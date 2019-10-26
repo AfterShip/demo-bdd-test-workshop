@@ -3,9 +3,18 @@ A workshop for bdd test coding by Node.js
 
 Coding environment: Node.js
 
-[fast download & install](https://nodejs.org/)
 
 ## Usage
+
+
+1. [fast download & install](https://nodejs.org/), skip this if you have installed
+
+1. `git clone git@github.com:AfterShip/demo-bdd-test-workshop.git`
+
+1. `npm install`
+
+1. `npm test`
+
 
 ```gherkin
 
